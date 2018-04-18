@@ -1,0 +1,28 @@
+_____                _     _             
+|  ___|              | |   (_)            
+| |__ _ __ ___  _   _| |___ _  ___  _ __  
+|  __| '_ ` _ \| | | | / __| |/ _ \| '_ \ 
+| |__| | | | | | |_| | \__ \ | (_) | | | |
+\____/_| |_| |_|\__,_|_|___/_|\___/|_| |_|
+                                          
+---------------- Fab[r]ice ----------------
+
+http://quasar-framework.org/guide/app-build-commands.html
+http://quasar-framework.org/guide/quasar-cli.html#dev-Development-Server
+
+## Doc
+
+--target [darwin|win32|linux|mas|all]
+--arch, -A [ia32|x64|armv7l|arm64|all]
+
+## Pour linux : 
+
+$ quasar build -m electron -t mat
+
+## Pour windows :
+
+$ quasar build -m electron -t mat --target win32
+
+## Pour Mac :
+
+$ quasar build -m electron -t mat --target darwin

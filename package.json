@@ -1,0 +1,41 @@
+{
+  "name": "emulsion",
+  "version": "1.0.0",
+  "description": "Gestion de Rom et de jeu pour PSP",
+  "productName": "Emulsion",
+  "cordovaId": "org.cordova.quasar.app",
+  "author": "Fab[r]ice <contact@emulsion.io>",
+  "private": true,
+  "scripts": {
+ 	  "create-debian-installer": "electron-installer-debian --src dist/electron-mat/emulsion-psp-linux-x64 --arch amd64 --config debian.json"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "crc": "^3.5.0",
+    "fs-extra": "^5.0.0",
+    "get-folder-size": "^1.0.1",
+    "node-minizip": "^0.3.0",
+    "underscore": "^1.8.3",
+    "unzip": "^0.1.11",
+    "unzip-stream": "^0.3.0",
+    "vue-i18n": "^7.3.3",
+    "vue-underscore": "^0.1.4"
+  },
+  "devDependencies": {
+    "devtron": "1.4.0",
+    "electron": "1.8.3",
+    "electron-debug": "1.5.0",
+    "electron-devtools-installer": "2.2.1",
+    "electron-packager": "^11.1.0",
+    "quasar-cli": "^0.15.14"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}

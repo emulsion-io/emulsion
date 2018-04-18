@@ -48,8 +48,8 @@
 
 				<p class="caption q-subheading">Selectionner les packs de roms disponnible</p>
 
-				<div v-for="roms in liste_roms">
-					<div v-if="emulateur.includes(roms.id)">
+				<div v-for="roms in liste_roms" :key="roms.nom">
+					<div v-if="emulateur.includes(roms.id)" >
 						<q-checkbox v-model="rom" :val="roms.id" color="pink" :label="roms.nom" @input="taille_pack(roms.id)" />  <span class="sizefolder">{{calcule_tailles(roms.id)}}</span> <br>
 					</div>
 				</div>

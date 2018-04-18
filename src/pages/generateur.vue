@@ -34,12 +34,12 @@
 			<p class="caption q-subheading">Sélection des émulateurs</p>
 
 			<template v-if="liste_emulateur === true">
-				<template v-for="emul in liste_emulateurs">
+				<div v-for="emul in liste_emulateurs" :key="emul.id">
 					
-					<q-checkbox v-model="emulateur" :val="emul.id" color="orange" :key="emul.id" :label="emul.nom_console" @input="uncheck_roms(emul.id)"/>
+					<q-checkbox v-model="emulateur" :val="emul.id" color="orange" :label="emul.nom_console" @input="uncheck_roms(emul.id)"/>
 					<q-btn flat dense round size="sm" icon="info outline" color="orange" @click="OpenInfo('emulateur', emul)" /><br>
 
-				</template>
+				</div>
 			</template>
 
 			<template v-if="liste_rom === true">
@@ -48,12 +48,11 @@
 
 				<p class="caption q-subheading">Selectionner les packs de roms disponnible</p>
 
-				<template v-for="roms in liste_roms">
-					
-					<template v-if="emulateur.includes(roms.id)">
-						<q-checkbox  v-model="rom" :val="roms.id" color="pink" :label="roms.nom" @input="taille_pack(roms.id)" />  <span class="sizefolder">{{calcule_tailles(roms.id)}}</span> <br>
-					</template>
-				</template>
+				<div v-for="roms in liste_roms">
+					<div v-if="emulateur.includes(roms.id)">
+						<q-checkbox v-model="rom" :val="roms.id" color="pink" :label="roms.nom" @input="taille_pack(roms.id)" />  <span class="sizefolder">{{calcule_tailles(roms.id)}}</span> <br>
+					</div>
+				</div>
 	
 				<br>
 				<span class="sizefolder">Taille du pack de roms selectionnés : {{taille}} mo</span>
@@ -67,38 +66,38 @@
 				<p class="caption q-title">Homebrews</p>
 				<p class="caption q-subheading">Sélection de Homebrews</p>
 
-				<template v-for="homebrew in liste_homebrews">
-					<q-checkbox v-model="homebrews" :val="homebrew.files" color="light-green" :key="homebrew.id" :label="homebrew.nom" />
+				<div v-for="homebrew in liste_homebrews" :key="homebrew.id">
+					<q-checkbox v-model="homebrews" :val="homebrew.files" color="light-green" :label="homebrew.nom" />
 						<q-btn flat dense round size="sm" icon="info outline" color="yellow" @click="OpenInfo('homebrews', homebrew)" />
 					<br>
-				</template>
+				</div>
 			</template>
 
 			<template v-if="liste_mes_homebrew === true">
 				<p class="caption q-subheading">Sélection de mes Homebrews</p>
 				
-				<template v-for="homebrew in mes_homebrew">
-					<q-checkbox v-model="meshomebrews" :val="homebrew.nom" color="light-green" :key="homebrew.nom" :label="homebrew.nom" /><br>
-				</template>
+				<div v-for="homebrew in mes_homebrew" :key="homebrew.nom">
+					<q-checkbox v-model="meshomebrews" :val="homebrew.nom" color="light-green" :label="homebrew.nom" /><br>
+				</div>
 			</template>
 			<br>
 
 			<p class="caption q-title">Jeux</p>
 			<template v-if="liste_jeu === true">
 				<p class="caption q-subheading">Sélection de Jeux</p>
-				<template v-for="jeu in liste_jeux">
-					<q-checkbox v-model="jeux" :val="jeu.files" color="light-green" :key="jeu.id" :label="jeu.nom" />
+				<div v-for="jeu in liste_jeux" :key="jeu.id">
+					<q-checkbox v-model="jeux" :val="jeu.files" color="light-green" :label="jeu.nom" />
 						<q-btn flat dense round size="sm" icon="info outline" color="yellow" @click="OpenInfo('homebrews', jeu)" />
 					<br>
-				</template>
+				</div>
 			</template>
 			
 			<template v-if="liste_mes_jeu === true">
 				<p class="caption q-subheading">Sélection de mes Jeux</p>
 				
-				<template v-for="jeu in mes_jeu">
-					<q-checkbox v-model="mesjeux" :val="jeu.nom" color="light-green" :key="jeu.nom" :label="jeu.nom" /><br>
-				</template>
+				<div v-for="jeu in mes_jeu" :key="jeu.nom">
+					<q-checkbox v-model="mesjeux" :val="jeu.nom" color="light-green" :label="jeu.nom" /><br>
+				</div>
 			</template>
 
 			<br>
@@ -118,9 +117,9 @@
 				<p class="caption q-title">ISO PSP</p>
 				<p class="caption q-subheading">Sélection des isos</p>
 
-				<template v-for="iso in isos">
-					<q-checkbox color="pink" :val="iso.nom" :label="iso.nom" v-model="liste_isos" :key="iso.nom" @input="taille_pack_isos(iso.nom)" /> <span class="sizefolder">{{calcule_tailles_isos(iso.nom)}}</span> <br>
-				</template>
+				<div v-for="iso in isos" :key="iso.nom">
+					<q-checkbox color="pink" :val="iso.nom" :label="iso.nom" v-model="liste_isos" @input="taille_pack_isos(iso.nom)" /> <span class="sizefolder">{{calcule_tailles_isos(iso.nom)}}</span> <br>
+				</div>
 
 				<br>
 				<span class="sizefolder">Taille du pack d'isos selectionnés : </span> <span class="sizefolderb">{{taille_isos}} mo</span>

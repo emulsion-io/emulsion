@@ -66,7 +66,11 @@ module.exports = function (ctx) {
         'QFabAction',
         'QPageSticky',
         'QModal',
-        'QProgress'
+        'QProgress',
+        'QInnerLoading',
+        'QSpinnerGears',
+        'QSpinnerPuff',
+        'QSpinner'
       ],
       directives: [
         'Ripple'

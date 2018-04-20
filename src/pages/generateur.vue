@@ -189,6 +189,22 @@
 			  </q-modal>
 			</template>
 
+			<template>
+			  <q-modal position="top" v-model="loading" :content-css="{padding: '20px', backgroundColor: '#000'}">
+			    <p v-html="loading_html"></p>
+			    <br />
+			    <br />
+			    <q-btn
+			      color="orange"
+			      @click="loading = false"
+			      label="Fermer"
+			    />
+			  </q-modal>
+			</template>
+
+		<q-inner-loading :visible="visible">
+			<q-spinner-puff dark="true" size="150px" color="#000"></q-spinner-puff>
+		</q-inner-loading>
 		</div>
 	</q-page>
 </template>
@@ -206,6 +222,9 @@ export default {
 	data () {
 		return {
 			architecture: {},
+			loading: false,
+			loading_html: false,
+			visible: true,
 			taille: 0,
 			tailles: [],
 			taille_isos: 0,
@@ -292,98 +311,40 @@ export default {
 	created () {
 		const fs = require('fs-extra')
 		var getSize = require('get-folder-size');
+		const unzip = require('unzip-stream');
  
-		const packageObj = fs.readJsonSync('psp/architecture.json')
-		this.architecture = packageObj;
+		// on test si le dossier psp/ est bien existant
+		if (!fs.existsSync('psp/')) {
+			 // on test si le zip psp.zip contenant les fichiers existe pour l'extraite
+			if (fs.existsSync('psp.zip')) {
+			
+				this.loading = true;
+				this.loading_html = "<span class='blanc'>Nous sommes en train d'extraire les fichiers de psp.zip pour vous.</span>";
 
+				var inputFileName = 'psp.zip'
+				var extractToDirectory = '';
 
-		const filePath = path.join(remote.app.getPath('userData'), '/some.file')
+				fs.createReadStream(inputFileName)
+				.pipe(unzip.Extract({ path: extractToDirectory }))
+				.on('close', () => {
+					this.load_page();
+					this.visible = false;
 
-console.log(filePath);
-
-		//this.scrap('test', 'tred');
-
-
-		// Generation de la liste des emulateurs
-		if (this.architecture.emulateur.length > 0){
-			for (let val of this.architecture.emulateur) {
-				this.liste_emulateurs.push(val);
-				this.liste_emulateur = true;
-			}
-		}
-
-		// Generation de la liste des packs de roms
-		if (this.architecture.rom.length > 0){
-			for (let val of this.architecture.rom) {
-
-				getSize(val.folder, (err, size) => {
-
-			 		this.tailles.push({ name: val.id, taille: (size / 1024 / 1024).toFixed(2)});
-
+				this.loading = true;
+				this.loading_html = "<span class='blanc'>Les fichiers sont extraits, vous pouvez utiliser l'application correctement.</span>";
 				});
 
-				this.liste_roms.push(val);
-				this.liste_rom = true;
+			} else {
+				// message pour dire de créer l'architecture /psp ou de placer le zip dans le dossier d'installation
+				this.loading = true;
+				this.loading_html = "<span class='blanc'>Merci de placer le dossier /psp/ ou le fichier psp.zip a la racine de l'installation</span>";
+
+				return false;
 			}
+		} else {
+			this.load_page();
+			this.visible = false;
 		}
-
-		// Generation de la liste des homebrews
-		if (this.architecture.homebrew.length > 0){
-			for (let val of this.architecture.homebrew) {
-				this.liste_homebrews.push(val);
-				this.liste_homebrew = true;
-			}
-		}
-
-		// Generation de la liste des jeux
-		if (this.architecture.jeu.length > 0){
-			for (let val of this.architecture.jeu) {
-				this.liste_jeux.push(val);
-			    this.liste_jeu = true;
-			}
-		}
-
-		// Chargement des fichiers ISO qui sont dans le dossier ISO
-		fs.readdir("psp/iso", (err, dir) => {
-			for(let filePath of dir) {
-				
-				if(filePath == "notice.txt")
-					continue;
-
-				getSize("psp/iso/" + filePath, (err, size) => {
-
-			 		this.tailles_isos.push({ name: filePath, taille: (size / 1024 / 1024).toFixed(2)});
-
-				});
-
-				this.isos.push({nom: filePath});
-				this.liste_iso = true;
-			}
-		});
-
-		// Chargement des fichiers Mes Homebrews
-		fs.readdir("psp/homebrew/mesfichiers/", (err, dir) => {
-			for(let filePath of dir) {
-				
-				if(filePath == "notice.txt")
-					continue;
-
-				this.mes_homebrew.push({nom: filePath});
-				this.liste_mes_homebrew = true;
-			}
-		});
-
-		// Chargement des fichiers Mes jeux
-		fs.readdir("psp/jeu/mesfichiers/", (err, dir) => {
-			for(let filePath of dir) {
-				
-				if(filePath == "notice.txt")
-					continue;
-
-				this.mes_jeu.push({nom: filePath});
-				this.liste_mes_jeu = true;
-			}
-		});
 	},
 	computed: {
 		taille_total: function () {
@@ -551,6 +512,96 @@ console.log(filePath);
 		}
 	},
 	methods: {
+		load_page() {
+			const fs = require('fs-extra')
+			var getSize = require('get-folder-size');
+
+			const packageObj = fs.readJsonSync('psp/architecture.json')
+			this.architecture = packageObj;
+
+			//this.scrap('test', 'tred');
+
+			// Generation de la liste des emulateurs
+			if (this.architecture.emulateur.length > 0){
+				for (let val of this.architecture.emulateur) {
+					this.liste_emulateurs.push(val);
+					this.liste_emulateur = true;
+				}
+			}
+
+			// Generation de la liste des packs de roms
+			if (this.architecture.rom.length > 0){
+				for (let val of this.architecture.rom) {
+
+					getSize(val.folder, (err, size) => {
+
+						this.tailles.push({ name: val.id, taille: (size / 1024 / 1024).toFixed(2)});
+
+					});
+
+					this.liste_roms.push(val);
+					this.liste_rom = true;
+				}
+			}
+
+			// Generation de la liste des homebrews
+			if (this.architecture.homebrew.length > 0){
+				for (let val of this.architecture.homebrew) {
+					this.liste_homebrews.push(val);
+					this.liste_homebrew = true;
+				}
+			}
+
+			// Generation de la liste des jeux
+			if (this.architecture.jeu.length > 0){
+				for (let val of this.architecture.jeu) {
+					this.liste_jeux.push(val);
+					this.liste_jeu = true;
+				}
+			}
+
+			// Chargement des fichiers ISO qui sont dans le dossier ISO
+			fs.readdir("psp/iso", (err, dir) => {
+				for(let filePath of dir) {
+					
+					if(filePath == "notice.txt")
+						continue;
+
+					getSize("psp/iso/" + filePath, (err, size) => {
+
+						this.tailles_isos.push({ name: filePath, taille: (size / 1024 / 1024).toFixed(2)});
+
+					});
+
+					this.isos.push({nom: filePath});
+					this.liste_iso = true;
+				}
+			});
+
+			// Chargement des fichiers Mes Homebrews
+			fs.readdir("psp/homebrew/mesfichiers/", (err, dir) => {
+				for(let filePath of dir) {
+					
+					if(filePath == "notice.txt")
+						continue;
+
+					this.mes_homebrew.push({nom: filePath});
+					this.liste_mes_homebrew = true;
+				}
+			});
+
+			// Chargement des fichiers Mes jeux
+			fs.readdir("psp/jeu/mesfichiers/", (err, dir) => {
+				for(let filePath of dir) {
+					
+					if(filePath == "notice.txt")
+						continue;
+
+					this.mes_jeu.push({nom: filePath});
+					this.liste_mes_jeu = true;
+				}
+			});
+		},
 		uncheck_roms(id) {
 			if(this.rom.includes(id)) {
 				let index = this.rom.indexOf(id);

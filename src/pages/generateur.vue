@@ -109,7 +109,7 @@
 
 			<p class="caption q-title">Plugins</p>
 
-			<q-checkbox v-model="plugins" color="brown" label="Installer les plugins (CXMB, CwCheat, PopsLoader, Category Lite)" /><br>
+			<q-checkbox v-model="plugins" color="deep-purple-3" label="Installer les plugins (CXMB, CwCheat, PopsLoader, Category Lite)" /><br>
 
 			<br>
 

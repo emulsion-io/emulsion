@@ -10,6 +10,15 @@
 
 > WIP
 
+```
+ _____                _     _             
+|  ___|              | |   (_)            
+| |__ _ __ ___  _   _| |___ _  ___  _ __  
+|  __| '_ ` _ \| | | | / __| |/ _ \| '_ \ 
+| |__| | | | | | |_| | \__ \ | (_) | | | |
+\____/_| |_| |_|\__,_|_|___/_|\___/|_| |_|
+```
+
 ## Description
 
 Emulsion permet de trier vos données de retro-gaming et bien plus pour votre PSP, qu'il s'agisse d'émulateur, de roms, de homebrew, ..., vous avez a disposition la possibilité de ranger tous vos fichiers dans des dossiers pour les utiliser ensuite au travers de l'application.
@@ -18,13 +27,15 @@ Emulsion vous permet de générer l'architecture des dossiers ( les bons fichier
 
 ## Comment l'utiliser
 
-1) Il vous faut télécharger l'archive psp.zip  et l'extraire ( si vous ne faite pas l'extraction le logiciel le fera pour vous) a la racine du dossier d'installation du logiciel ( les liens pour récuperer le fichier psp.zip ce trouve dans le fichier liens.txt )
+1) Il vous faut télécharger l'archive psp.zip  et l'extraire ( si vous ne faite pas l'extraction le logiciel le fera pour vous) a la racine du dossier d'installation du logiciel.
 
-2) Lancez l'application, vous pouvez selectionner tous ce dont vous avez besoin, mise a jour, émulateur, jeux, themes, ... et générer votre carte SD
+2) Lire le fichier a-lire.txt ce trouvant a la racine du dossier de l'application
 
-3) Les fichiers seront copier et extrait dans le dossier /psp/cartesd/ il ne vous reste plus qu'a copier/coller/fusioner ce dossier sur votre carte sd préalablement formaté sur votre psp si elle ne la pas déja été.
+3) Lancez l'application, vous pouvez selectionner tous ce dont vous avez besoin, mise a jour, émulateur, jeux, themes, ... et générer votre carte SD
 
-4) Vous retrouverez vos differents émulateurs, jeux et homebrews dans leur catégories respectives.
+4) Les fichiers seront copier et extrait dans le dossier /psp/cartesd/ il ne vous reste plus qu'a copier/coller/fusioner ce dossier sur votre carte sd préalablement formaté sur votre psp si elle ne la pas déja été.
+
+5) Vous retrouverez vos differents émulateurs, jeux et homebrews dans leur catégories respectives.
 
 ## Les petits plus
 

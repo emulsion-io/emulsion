@@ -1,5 +1,9 @@
 # Emulsion for PSP
 
+![Compatible windows](https://img.shields.io/badge/os-windows-blue.svg)
+![Compatible Linux](https://img.shields.io/badge/os-debian-blue.svg)
+![Compatible Mac](https://img.shields.io/badge/os-macos-blue.svg)
+
 > WIP
 
 ## Description

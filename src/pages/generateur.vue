@@ -50,7 +50,11 @@
 
 				<div v-for="roms in liste_roms" :key="roms.nom">
 					<div v-if="emulateur.includes(roms.id)" >
-						<q-checkbox v-model="rom" :val="roms.id" color="pink" :label="roms.nom" @input="taille_pack(roms.id)" />  <span class="sizefolder">{{calcule_tailles(roms.id)}}</span> <br>
+						<q-checkbox v-model="rom" :val="roms.id" color="pink" :label="roms.nom" @input="taille_pack(roms.id)" />  <span class="sizefolder">{{calcule_tailles(roms.id)}}</span>
+						<span v-if="roms.tooltip" >
+							<q-btn flat dense round size="sm" icon="warning" color="pink" @click="OpenInfo('rom', roms)" />
+						</span>
+						<br>
 					</div>
 				</div>
 	
@@ -672,6 +676,13 @@ export default {
 	    		this.modal_info += "<li> Nom de l'émulateur: " + infos.nom + "</li>";
 				this.modal_info += "<li>" + infos.description + "</li>";
 				this.modal_info += '<li>Version: ' + infos.version + "</li>"
+				this.modal_info += "</ul>";
+
+			}else if (type == "rom") {
+
+				this.modal_info  = "<ul>";
+	    		this.modal_info += "<li> Nom de l'émulateur: " + infos.nom + "</li>";
+				this.modal_info += '<li>' + infos.tooltip + "</li>"
 				this.modal_info += "</ul>";
 
     		} else {

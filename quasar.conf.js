@@ -134,7 +134,7 @@ module.exports = function (ctx) {
           "name": "emulsion-psp",
           "productName": "Emulsion for PsP",
           "version": "0.1.2",
-          "icon": "assets/icons/icon-512x512.png"
+        //  "icon": "assets/icons/icon-512x512.png"
         // OS X / Mac App Store
         // appBundleId: '',
         // appCategoryType: '',

@@ -3,7 +3,6 @@
 ![Compatible windows](https://img.shields.io/badge/os-windows-blue.svg)
 ![Compatible Linux](https://img.shields.io/badge/os-debian-blue.svg)
 ![Compatible Mac](https://img.shields.io/badge/os-macos-blue.svg)
-
 ![Build ok](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![Build ok](https://img.shields.io/badge/framwork-electronjs-brightgreen.svg)
 ![Build ok](https://img.shields.io/badge/framwork-quasar-brightgreen.svg)

@@ -40,3 +40,18 @@ Emulsion vous permet de générer l'architecture des dossiers ( les bons fichier
 ## Les petits plus
 
 Un certain nombres de plugins sont proposés directement, bien entendu, ceux ci ne fonctionnent que si votre PSP est flashé avec un Custom FW ( vous trouverez comment faire cette procédure partout sur internet), les fichiers pour effectuer la manipulation sont déja dans l'application.
+
+
+```
+Changelog
+--------------------------------
+
+v0.2 (2018-04-22)
+
+Ajout du controle de la presence du dossier /psp a la racine du programme
+
+v0.1 (2018-04-21)
+
+Mise en place de l'architecture permettant l'utilisation du programme au utilisateurs.
+
+```

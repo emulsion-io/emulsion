@@ -7,7 +7,7 @@ export default {
 	methods: {
     	generate_sdcard() {
 
-			const unzip = require('unzip-stream');
+			const unzip = require('unzip-stream')
 			const fs = require('fs-extra')
 
     	 	if(!this.folder) {

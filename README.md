@@ -27,19 +27,19 @@ Emulsion vous permet de générer l'architecture des dossiers ( les bons fichier
 
 ## Comment l'utiliser
 
-1) Il vous faut télécharger l'archive psp.zip  et l'extraire ( si vous ne faite pas l'extraction le logiciel le fera pour vous) a la racine du dossier d'installation du logiciel.
+1) Lire le fichier a-lire.txt ce trouvant a la racine du dossier de l'application et/ou a la racine du zip des releases.
 
-2) Lire le fichier a-lire.txt ce trouvant a la racine du dossier de l'application
+2) Placez ou extraire l'archive psp.zip a la racine du dossier d'installation du logiciel. ( si vous ne faite pas l'extraction le logiciel le fera pour vous) 
 
 3) Lancez l'application, vous pouvez selectionner tous ce dont vous avez besoin, mise a jour, émulateur, jeux, themes, ... et générer votre carte SD
 
-4) Les fichiers seront copier et extrait dans le dossier /psp/cartesd/ il ne vous reste plus qu'a copier/coller/fusioner ce dossier sur votre carte sd préalablement formaté sur votre psp si elle ne la pas déja été.
+4) Les fichiers seront présent dans le dossier /psp/cartesd/ il ne vous reste plus qu'a copier/coller/fusioner ce dossier sur votre carte sd préalablement formaté sur votre psp si elle ne l'a pas déja été.
 
 5) Vous retrouverez vos differents émulateurs, jeux et homebrews dans leur catégories respectives.
 
 ## Les petits plus
 
-Un certain nombres de plugins sont proposés directement, bien entendu, ceux ci ne fonctionnent que si votre PSP est flashé avec un Custom FW ( vous trouverez comment faire cette procédure partout sur internet), les fichiers pour effectuer la manipulation sont déja dans l'application.
+Un certains nombres de plugins sont proposés directement, bien entendu, ceux ci ne fonctionnent que si votre PSP est flashé avec un Custom FW ( vous trouverez comment faire cette procédure partout sur internet), les fichiers pour effectuer la manipulation sont déja dans l'application.
 
 -----------------
 

@@ -1,6 +1,6 @@
 # Emulsion for PSP
 
-![Version](https://img.shields.io/badge/version-v0.1-orange.svg)
+![Version](https://img.shields.io/badge/version-v0.2-orange.svg)
 ![Compatible windows](https://img.shields.io/badge/os-windows-blue.svg)
 ![Compatible Linux](https://img.shields.io/badge/os-debian-blue.svg)
 ![Compatible Mac](https://img.shields.io/badge/os-macos-blue.svg)

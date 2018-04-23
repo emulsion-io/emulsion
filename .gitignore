@@ -4,6 +4,7 @@
 /src/plugins/screenscraper.js
 psp.zip
 /psp-test
+/scripts/psp-deploy.sh
 
 # quasar
 .quasar

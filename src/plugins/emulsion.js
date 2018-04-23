@@ -247,11 +247,11 @@ export default {
 			// Themes
 			if(this.themes === true) {
 
-				fs.ensureDir(this.folder + 'PSP/THEMES/')
+				fs.ensureDir(this.folder + 'PSP/THEME/')
 				.then(() => {
 					
 					this.progress_theme = 1;
-					fs.copy('psp/themes', this.folder + 'PSP/THEMES/')
+					fs.copy('psp/themes', this.folder + 'PSP/THEME/')
 					.then(() => {
 						this.progress_theme = 2;
 					})
